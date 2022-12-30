@@ -15,3 +15,6 @@ create-container:
 
 remove-container:
 	podman container rm fastapi-podman
+
+test:
+	http localhost:8000
