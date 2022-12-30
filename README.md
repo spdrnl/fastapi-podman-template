@@ -5,5 +5,6 @@ A small project that sets up a REST-API using Python with:
 - poetry
 - FastAPI
 - podman
+- httpie
 
 TODO: streamline Makefile
