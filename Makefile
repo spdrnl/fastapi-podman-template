@@ -1,4 +1,7 @@
-start: 
+VERSION := $(shell poetry run python -c 'import tomli; print(tomli.load(open("pyproject.toml", "rb"))["tool"]["poetry"]["version"])')
+
+
+start: remove-container 
 	podman container run -d --name fastapi-podman -p 8000:80 --network bridge fastapi-podman
 
 stop:
@@ -13,7 +16,7 @@ dev-install:
 create-container:
 	podman image build -t fastapi-podman .
 
-remove-container:
+remove-container: stop
 	podman container rm fastapi-podman
 
 test:
