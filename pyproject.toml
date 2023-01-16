@@ -10,6 +10,7 @@ python = "^3.10"
 fastapi = "^0.88.0"
 uvicorn = "^0.20.0"
 tomli = "^2.0.1"
+pytest = "^7.2.1"
 
 
 [build-system]
