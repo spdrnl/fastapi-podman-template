@@ -1,13 +1,19 @@
-FROM python:3.10 as requirements-stage
-WORKDIR /tmp
-RUN pip install poetry
-COPY ./pyproject.toml ./poetry.lock* /tmp/
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+FROM python:3-slim as python
+ENV PYTHONUNBUFFERED=true
+WORKDIR /work
 
-FROM python:3.10
-WORKDIR /code
-COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-COPY ./app /code/app
+
+FROM python as poetry
+ENV POETRY_HOME=/opt/poetry
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV PATH="$POETRY_HOME/bin:$PATH"
+RUN python -c 'from urllib.request import urlopen; print(urlopen("https://install.python-poetry.org").read().decode())' | python -
+COPY . ./
+RUN poetry install --no-interaction --no-ansi -vvv
+
+
+
+FROM python as runtime
+ENV PATH="/work/.venv/bin:$PATH"
+COPY --from=poetry /work /work
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
-
