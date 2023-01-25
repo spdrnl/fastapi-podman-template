@@ -43,3 +43,9 @@ build-test-container:
 run-test-container: 
 	podman container run --name fastai-podman-test fastai-podman-test
 
+create-docs:
+	rm -rf docs/build/*
+	poetry run sphinx-apidoc -o docs/source app
+	poetry run sphinx-build docs/source docs/build
+
+
