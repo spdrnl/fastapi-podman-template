@@ -19,6 +19,8 @@ interrogate = "^1.5.0"
 flake8-pyproject = "^1.2.2"
 recommonmark = "^0.7.1"
 mkdocs-material = "^9.0.6"
+mkdocstrings = {extras = ["python"], version = "^0.20.0"}
+pygments = "^2.14.0"
 
 
 [build-system]
