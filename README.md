@@ -12,6 +12,7 @@ A small project that sets up a REST-API using Python with:
 - Mkdocs-material
 - black
 - flake8
+- dotenv
 
 TODO:
 - Add Github actions for tests and documentation
