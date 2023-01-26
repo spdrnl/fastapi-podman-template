@@ -10,5 +10,6 @@ def hello(count, name):
         click.echo(f"Hello {name}!")
 
 
-if __name__ == "__main__":
-    hello()
+# The hello function is registered as script in pyproject.toml
+# if __name__ == "__main__":
+#     hello()
