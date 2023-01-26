@@ -20,7 +20,7 @@ sleep:
 	sleep .1
 
 run-local:
-	poetry run uvicorn app.main:app --reload
+	poetry run uvicorn app.rest.server:app --reload
 
 dev-install:
 	poetry install

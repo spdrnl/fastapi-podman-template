@@ -16,4 +16,4 @@ RUN poetry install --no-interaction --no-ansi -vvv
 FROM python as runtime
 ENV PATH="/work/.venv/bin:$PATH"
 COPY --from=poetry /work /work
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.rest.server:app", "--host", "0.0.0.0", "--port", "80"]
