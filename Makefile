@@ -1,4 +1,4 @@
-VERSION := $(shell poetry run python -c 'import tomli; print(tomli.load(open("pyproject.toml", "rb"))["tool"]["poetry"]["version"])')
+VERSION := $(shell cat pyproject.toml | grep -m1 version | grep -P "([\d+\.]*)" -o)
 
 
 run-integration: run-container sleep call stop-container
