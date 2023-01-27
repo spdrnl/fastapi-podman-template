@@ -1,12 +1,8 @@
 # fastapi-podman-template 
 
-A small project that sets up a REST-API using Python with:
-- make
-- poetry
+A template project that sets up a REST-API using Python with:
 - fastAPI
-- podman
 - httpie
-- podman
 - pytest
 - click
 - mkdocs-material
@@ -14,6 +10,8 @@ A small project that sets up a REST-API using Python with:
 - flake8
 - dotenv
 
-TODO:
-- Add git actions
-- Evaluate template system (copier)
+Assumed dependencies are:
+- make
+- httpie
+- podman
+- poetry
