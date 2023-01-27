@@ -1,11 +1,6 @@
 import click
 import logging
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s %(levelname)s %(name)s - %(message)s ",
-)
-from app.util.config import get_env_config
+from app.util.config import env, settings
 
 
 logger = logging.getLogger(__name__)
@@ -17,9 +12,9 @@ logger = logging.getLogger(__name__)
 def hello(count, name):
     """A simple greeting function."""
 
-    env = get_env_config()
-    logger.info(f"The current system is: {env.get('system', 'dev')}")
-    
+    logger.info(f"The current env is: {env['env']}")
+    logger.info(f"The value of b is : {settings['app']['b']}")
+
     for x in range(count):
         click.echo(f"Hello {name}!")
 

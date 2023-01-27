@@ -47,3 +47,6 @@ create-docs:
 	rm -rf site 
 	poetry run mkdocs build
 
+format:
+	poetry run black .
+	poetry run flake8 .
