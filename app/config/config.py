@@ -2,6 +2,7 @@ import os
 import logging
 import logging.config
 from dotenv import dotenv_values
+import pathlib
 import tomli
 
 __all__ = ["env", "settings"]
@@ -23,9 +24,10 @@ def _get_env():
     }
 
     # Apply default settings
+    config_dir = pathlib.Path(__file__).parent.resolve()
     env["env"] = env.get("env", "dev")
-    env["settings"] = env.get("settings", "settings.toml")
-    env["logging"] = env.get("logging", "logging.conf")
+    env["settings"] = env.get("settings", config_dir / "settings.toml")
+    env["logging"] = env.get("logging", config_dir / "logging.conf")
 
     return env
 

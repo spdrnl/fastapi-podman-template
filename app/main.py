@@ -1,6 +1,6 @@
 import click
 import logging
-from app.util.config import env, settings
+from app.config.config import env, settings
 
 
 logger = logging.getLogger(__name__)
