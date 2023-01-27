@@ -3,7 +3,7 @@
 A small project that sets up a REST-API using Python with:
 - make
 - poetry
-- FastAPI
+- fastAPI
 - podman
 - httpie
 - podman
