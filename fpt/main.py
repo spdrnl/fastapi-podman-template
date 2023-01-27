@@ -1,6 +1,6 @@
 import click
 import logging
-from app.config.config import env, settings
+from fpt.config.config import env, settings
 
 
 logger = logging.getLogger(__name__)

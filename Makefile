@@ -1,26 +1,26 @@
 VERSION := $(shell poetry run python -c 'import tomli; print(tomli.load(open("pyproject.toml", "rb"))["tool"]["poetry"]["version"])')
 
 
-run-integration: stop-container remove-run-container build-run-container run-container sleep call stop-container
+run-integration: run-container sleep call stop-container
 	echo "Done."
 
-run-container:  
-	podman container run -d --name fastai-podman -p 8000:80 --network bridge fastai-podman
+run-container: stop-container remove-run-container build-run-container 
+	podman container run -d --name fpt -p 8000:80 --network bridge fpt
 
 stop-container:
-	podman stop -i fastai-podman
+	podman stop -i fpt
 
 build-run-container:
-	podman image build -t fastai-podman .
+	podman image build -t fpt .
 
 remove-run-container: 
-	podman container rm -i fastai-podman
+	podman container rm -i fpt
 
 sleep:
 	sleep .1
 
 run-server:
-	poetry run uvicorn app.rest.server:app --reload
+	poetry run uvicorn fpt.rest.server:app --reload
 
 run-command:
 	poetry run hello world
@@ -38,13 +38,13 @@ test-local:
 run-test-container: remove-test-container build-test-container run-test-container
 
 remove-test-container:
-	podman container rm -i fastai-podman-test
+	podman container rm -i fpt-test
 
 build-test-container: 
-	podman image build -f Dockerfile-test -t fastai-podman-test .
+	podman image build -f Dockerfile-test -t fpt-test .
 
 run-test-container: 
-	podman container run --name fastai-podman-test fastai-podman-test
+	podman container run --name fpt-test fpt-test
 
 create-docs:
 	rm -rf site 
