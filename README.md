@@ -1,7 +1,7 @@
 # fastapi-podman-template 
 
 A small project that sets up a REST-API using Python with:
-- CMake
+- make
 - poetry
 - FastAPI
 - podman
