@@ -19,8 +19,11 @@ remove-run-container:
 sleep:
 	sleep .1
 
-run-local:
+run-server:
 	poetry run uvicorn app.rest.server:app --reload
+
+run-command:
+	poetry run hello world
 
 dev-install:
 	poetry install
