@@ -26,7 +26,7 @@ def _get_env():
     # Apply default settings
     config_dir = pathlib.Path(__file__).parent.resolve()
     env["env"] = env.get("env", "dev")
-    env["settings"] = env.get("settings", config_dir / "settings.toml")
+    env["settings"] = env.get("settings", config_dir / "config.toml")
     env["logging"] = env.get("logging", config_dir / "logging.conf")
 
     return env
