@@ -24,8 +24,8 @@ def _get_env():
 
     # Apply default settings
     env["env"] = env.get("env", "dev")
-    env["settings"] = env.get("settings", f"{env['env']}-settings.toml")
-    env["logging"] = env.get("logging", f"{env['env']}-logging.conf")
+    env["settings"] = env.get("settings", "settings.toml")
+    env["logging"] = env.get("logging", "logging.conf")
 
     return env
 
