@@ -1,4 +1,4 @@
-# podman-fastapi
+# fastapi-podman-template 
 
 A small project that sets up a REST-API using Python with:
 - CMake
@@ -8,14 +8,12 @@ A small project that sets up a REST-API using Python with:
 - httpie
 - podman
 - pytest
-- Click
-- Mkdocs-material
+- click
+- mkdocs-material
 - black
 - flake8
 - dotenv
 
 TODO:
-- Add Github actions for tests and documentation
-- Add Jupyter notebooks
-- Add cookie cutter 
-- Evaluate Hatch
+- Add git actions
+- Evaluate template system (copier)
