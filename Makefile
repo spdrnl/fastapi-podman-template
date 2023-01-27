@@ -1,4 +1,4 @@
-VERSION := $(shell cat pyproject.toml | grep -m1 version | grep -P "([\d+\.]*)" -o)
+VERSION := $(shell cat pyproject.toml | grep -m1 ^version | grep -P "([\d+\.]*)" -o)
 
 
 run-integration: run-container sleep call stop-container
